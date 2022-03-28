@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  opportunitymanagementprocessapp:
+    build:
+      context: ./.
+      args:
+        - ARTIFACT=opportunity-management-app-21.03.0-SNAPSHOT.jar
+        - NEXUS=./target/${ARTIFACT}
+    ports:
+      - 8080:8080
+    #volumes:
+    #  - ./docker/secrets:/mnt/secrets
+    restart: unless-stopped
+    
